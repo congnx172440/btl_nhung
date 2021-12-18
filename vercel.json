@@ -14,7 +14,7 @@
     "env": {
         "APP_NAME": "Laravel Vercel",
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "btl-nhung.vercel.app",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
