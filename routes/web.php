@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('database', function (){
+    Schema::create('nhanvien',function($table) {
+            $table ->increments('id');
+            $table->string('ten',200);
+    });
+    echo "Da thuc hien lenh tao bang";
+});
