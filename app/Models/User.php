@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function vitri()
+    {
+        return $this->belongsTo('App\Models\ViTri','id_vi_tri','id');
+    }
+    public function congty()
+    {
+        return $this->belongsTo('App\Models\CongTy','id_cong_ty','id');
+    }
+    public function chamcong()
+    {
+        return $this->hasMany('App\Models\ChamCong','id_user','id');
+    }
 }

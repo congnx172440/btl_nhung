@@ -19,8 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('id_cong_ty')->unsigned();
+            $table->integer('id_vi_tri')->unsigned();
+            $table->mediumInteger('id_rfid')->unsigned();
             $table->rememberToken();
-            $table->timestamps();
+        });
+        Schema::table('users', function (Blueprint $table){
+            $table->foreign('id_cong_ty')->references('id')->on('cong_ties');
+            $table->foreign('id_vi_tri')->references('id')->on('vi_tris');
         });
     }
 
