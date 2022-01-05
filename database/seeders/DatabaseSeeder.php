@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,18 +21,23 @@ class DatabaseSeeder extends Seeder
            ['vi_tri'=>'Lãnh đạo'],
            ['vi_tri'=>'Nhân viên']
         ]);
+        $time_in = new Carbon('8:30:00');
+        $time_out = new Carbon('17:00:00');
         DB::table('cong_ties')->insert([
                 ['ten_cong_ty'=>'Set',
                     'dia_chi_cong_ty'=>'C9_BKHN',
-                'id_rfid'=>0,]
+                    'gio_vao'=>$time_in,
+                    'gio_ra'=>$time_out,
+                ]
         ]);
         DB::table('users')->insert([
             ['name'=>'Admin',
-            'email'=>'admin',
-            'password'=>bcrypt('12345'),
-            'id_vi_tri'=>1,
-            'id_cong_ty'=>1,
-            'id_rfid'=>0,]
+                'ten_hien_thi'=>'admin',
+                'email'=>'admin',
+                'password'=>bcrypt('12345'),
+                'id_vi_tri'=>1,
+                'id_cong_ty'=>1,
+                'id_rfid'=>'0',]
         ]);
     }
 }

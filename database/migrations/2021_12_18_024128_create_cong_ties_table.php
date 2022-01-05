@@ -17,7 +17,8 @@ class CreateCongTiesTable extends Migration
             $table->increments('id');
             $table->mediumText('ten_cong_ty');
             $table->mediumText('dia_chi_cong_ty');
-            $table->mediumInteger('id_rfid')->unsigned();
+            $table->time('gio_vao');
+            $table->time('gio_ra');
         });
     }
 

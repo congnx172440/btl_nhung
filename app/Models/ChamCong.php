@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChamCong extends Model
 {
-    protected $table="chamcongs";
+    protected $table="cham_congs";
+    public $timestamps = false;
     public function user()
     {
         return $this->belongsTo('App\Models\User','id_user','id');

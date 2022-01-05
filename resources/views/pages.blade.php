@@ -99,7 +99,7 @@
                   Giảng viên hướng dẫn:<br />Thầy Ngô Vũ Đức
                 </p>
                 <div class="slider-btn-area">
-                  <a href="#" class="default-big-btn">Đăng nhập</a>
+                  <a href="dangnhap" class="default-big-btn">Đăng nhập</a>
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@
                   Lê Minh Nghĩa - 20172719
                 </p>
                 <div class="slider-btn-area">
-                  <a href="#" class="default-big-btn">Đăng nhập</a>
+                  <a href="dangnhap" class="default-big-btn">Đăng nhập</a>
                 </div>
               </div>
             </div>

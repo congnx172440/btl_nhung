@@ -14,10 +14,11 @@ class CreateChamCongsTable extends Migration
     public function up()
     {
         Schema::create('cham_congs', function (Blueprint $table) {
+            $table->increments('id');
             $table->date('ngay_lam_viec');
             $table->bigInteger('id_user')->unsigned();
-            $table->dateTime('gio_vao');
-            $table->dateTime('gio_ra');
+            $table->time('gio_vao');
+            $table->time('gio_ra');
         });
         Schema::table('cham_congs', function(Blueprint $table) {
             $table->foreign('id_user')->references('id')->on('users');
