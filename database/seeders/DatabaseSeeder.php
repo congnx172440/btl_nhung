@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             ['name'=>'Admin',
                 'ten_hien_thi'=>'admin',
-                'email'=>'admin',
+                'email'=>'admin@hust.edu.vn',
                 'password'=>bcrypt('12345'),
                 'id_vi_tri'=>1,
                 'id_cong_ty'=>1,
