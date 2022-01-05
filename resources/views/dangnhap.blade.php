@@ -52,7 +52,7 @@
                                     <h1 class="h4 text-gray-900 mb-4">VIỆN ĐIỆN TỬ VIỄN THÔNG</h1>
                                 </div>
                                 <form class="user" action="dangnhap" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                                placeholder="Tài khoản..." name="email">
