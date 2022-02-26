@@ -151,6 +151,76 @@ class TaiKhoanController extends Controller
         return view('admin.taikhoan.SuaTaiKhoan',['taikhoan'=>$taikhoan,'vitri'=>$vitri]);
     }
 
+    public function postSua(Request $request,$id)
+    {
+        $vitri=ViTri::all();
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'vi_tri'=>'required',
+            'ten_hien_thi'=>'required|min:3|max:16',
+            'password' => 'required|min:3|max:32',
+            'passwordAgain' => 'required|same:password',
+            'id_rfid' => 'required'
+        ],[
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'name.min' => 'Tên người dùng phải có ít nhất 3 ký tự',
+            'vi_tri.required' => 'Bạn chưa nhập vị trí công việc',
+            'ten_hien_thi.required' => 'Bạn chưa nhập tên hiển thị',
+            'ten_hien_thi.min' => 'Tên hiển thị phải có độ dài từ 3 đến 16 ký tự',
+            'ten_hien_thi.max' => 'Tên hiển thị có độ dài từ 3 đến 16 ký tự',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'password.min' => 'mật khẩu phải có độ dài từ 3 đến 32 ký tự',
+            'password.max' => 'mật khẩu phải có độ dài từ 3 đến 32 ký tự',
+            'passwordAgain.required' => 'Bạn chưa nhập lại mật khẩu',
+            'passwordAgain.same' => 'Mật khẩu không khớp',
+            'id_rfid.required' => 'id_rfid không được phép trống'
+
+        ]);
+        $taikhoan=User::find($id);
+        $taikhoan->name=$request->name;
+        $taikhoan->ten_hien_thi=$request->ten_hien_thi;
+        $taikhoan->password=bcrypt($request->password);
+        $taikhoan->id_vi_tri=$request->vi_tri;
+        $taikhoan->id_rfid=$request->id_rfid;
+        $taikhoan->save();
+
+        return redirect('admin/taikhoan/sua/'.$id)->with('thongbao','Sửa Thành Công');;
+    }
+    public function postQLSua(Request $request,$id)
+    {
+        $vitri=ViTri::all();
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'vi_tri'=>'required',
+            'ten_hien_thi'=>'required|min:3|max:16',
+            'password' => 'required|min:3|max:32',
+            'passwordAgain' => 'required|same:password',
+            'id_rfid' => 'required'
+        ],[
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'name.min' => 'Tên người dùng phải có ít nhất 3 ký tự',
+            'vi_tri.required' => 'Bạn chưa nhập vị trí công việc',
+            'ten_hien_thi.required' => 'Bạn chưa nhập tên hiển thị',
+            'ten_hien_thi.min' => 'Tên hiển thị phải có độ dài từ 3 đến 16 ký tự',
+            'ten_hien_thi.max' => 'Tên hiển thị có độ dài từ 3 đến 16 ký tự',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'password.min' => 'mật khẩu phải có độ dài từ 3 đến 32 ký tự',
+            'password.max' => 'mật khẩu phải có độ dài từ 3 đến 32 ký tự',
+            'passwordAgain.required' => 'Bạn chưa nhập lại mật khẩu',
+            'passwordAgain.same' => 'Mật khẩu không khớp',
+            'id_rfid.required' => 'id_rfid không được phép trống'
+
+        ]);
+        $taikhoan=User::find($id);
+        $taikhoan->name=$request->name;
+        $taikhoan->ten_hien_thi=$request->ten_hien_thi;
+        $taikhoan->password=bcrypt($request->password);
+        $taikhoan->id_vi_tri=$request->vi_tri;
+        $taikhoan->id_rfid=$request->id_rfid;
+        $taikhoan->save();
+
+        return redirect('quanly/taikhoan/sua/'.$id)->with('thongbao','Sửa Thành Công');;
+    }
     public function getChontbsua($id,$id_thietbi=0){
         if ($id_thietbi != 0)
         {
