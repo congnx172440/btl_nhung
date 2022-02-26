@@ -36,7 +36,7 @@ class ThongKeController extends Controller
 
             $sub_second_lam_viec=Carbon::create($item->gio_ra)->diffInSeconds(Carbon::create($item->gio_vao));
             $sub_second_tre_vao=Carbon::create($item->gio_vao)->diffInSeconds(Carbon::create($congty->gio_vao));
-            $sub_second_tre_ra=Carbon::create($congty->gio_ra)->diffInSeconds(Carbon::create($congty->gio_vao));
+            $sub_second_tre_ra=Carbon::create($congty->gio_ra)->diffInSeconds(Carbon::create($item->gio_ra));
             $tong_tre=$sub_second_tre_vao+$sub_second_tre_ra;
             if($tong_tre>$gio_lam_cong_ty) $tong_tre=$gio_lam_cong_ty;
             $item->gio_lam_viec=gmdate("H:i:s", $sub_second_lam_viec);
