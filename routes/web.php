@@ -26,6 +26,7 @@ Route::get('quenmatkhau', function (){
 });
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
     Route::get('thongtin/{id}','App\Http\Controllers\PageController@getthongtinadmin');
+    Route::get('thongke','App\Http\Controllers\ThongKeController@getadminthongtin');
     Route::group(['prefix'=>'congty'],function() {
         Route::get('danhsach', 'App\Http\Controllers\CongTyController@getDanhSach');
 
@@ -82,6 +83,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 });
 Route::group(['prefix'=>'quanly','middleware'=>'quanlyLogin'],function(){
     Route::get('thongtin/{id}','App\Http\Controllers\PageController@getthongtinql');
+    Route::get('thongke/{id}','App\Http\Controllers\ThongKeController@getthongtin');
     Route::group(['prefix'=>'taikhoan'],function() {
         Route::get('danhsach/{id}','App\Http\Controllers\TaiKhoanController@getQLDanhSach');
 
@@ -128,7 +130,8 @@ Route::group(['prefix'=>'quanly','middleware'=>'quanlyLogin'],function(){
     });
 
 });
-Route::get('uid/{idu}/{idd}', 'App\Http\Controllers\Esp32Controller@getThemuid');
 Route::get('auth/{idu}', 'App\Http\Controllers\Esp32Controller@getresult');
+Route::get('okmask/{idp}', 'App\Http\Controllers\Esp32Controller@getokmask');
+Route::get('nokmask/{idu}', 'App\Http\Controllers\Esp32Controller@getnokmask');
 
 

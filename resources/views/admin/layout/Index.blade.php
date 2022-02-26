@@ -71,7 +71,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#"  >
+                <a class="nav-link collapsed" href="admin/thongke"  >
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Thống kê</span>
                 </a>

@@ -78,7 +78,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#"  >
+                <a class="nav-link collapsed" href="quanly/thongke/{{Auth::user()->id_cong_ty}}"  >
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Thống kê</span>
                 </a>
