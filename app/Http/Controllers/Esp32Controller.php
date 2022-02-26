@@ -91,7 +91,7 @@ class Esp32Controller extends Controller
         {
             $thietbi->trangthai = '0';
             $thietbi->save();
-            return response('CHINH KHAU TRANG', 200);
+            return response('CHINH KHAU TRANG', 201);
         }
         else
         {
